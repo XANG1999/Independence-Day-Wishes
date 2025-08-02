@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>76th Independence Day</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Caveat&family=Pacifico&family=Bit+Count&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Pacifico', cursive;
+      text-align: center;
+      background: linear-gradient(to bottom, #FF9933, #FFFFFF, #138808);
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-family: 'Alfa Slab One', cursive;
+      font-size: 3rem;
+      color: white;
+      text-shadow: 2px 2px black;
+    }
+
+    #countdown {
+      font-family: 'PROSPEKT', sans-serif;
+      font-size: 1.8rem;
+      color: black;
+      margin-bottom: 10px;
+    }
+
+    .flag-container {
+      margin: 20px auto;
+      height: 200px;
+      position: relative;
+      animation: hoist 3s ease-in-out forwards;
+    }
+
+    @keyframes hoist {
+      from { transform: translateY(100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .flag {
+      width: 150px;
+      height: auto;
+      animation: wave 2s infinite linear;
+    }
+
+    @keyframes wave {
+      0%, 100% { transform: rotateZ(0deg); }
+      50% { transform: rotateZ(2deg); }
+    }
+
+    .message {
+      font-size: 1.5rem;
+      color: black;
+      margin-bottom: 20px;
+    }
+
+    input {
+      font-family: 'Bitcount', monospace;
+      padding: 10px;
+      width: 70%;
+      border-radius: 10px;
+      border: none;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .whatsapp { background: #25D366; }
+    .facebook { background: #4267B2; }
+    .instagram { background: #E1306C; }
+
+    .from-name {
+      font-family: 'Caveat', cursive;
+      font-size: 1.4rem;
+      color: darkblue;
+    }
+
+    /* Particle styling */
+    .particle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      opacity: 0.6;
+      animation: rise 5s infinite ease-in;
+    }
+
+    @keyframes rise {
+      from { transform: translateY(100vh); opacity: 0.5; }
+      to { transform: translateY(-10vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>76th<br>Independence Day</h1>
+
+  <div class="flag-container">
+    <img src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg" class="flag" alt="India Flag" />
+  </div>
+
+  <div id="countdown"></div>
+
+  <div class="message">🇮🇳 <strong>Honouring Freedom, Inspiring the Future</strong> 🇮🇳</div>
+
+  <input type="text" id="nameInput" placeholder="Enter your name" />
+
+  <div class="buttons">
+    <button class="whatsapp" onclick="handleShare('whatsapp')">Share on WhatsApp</button>
+    <button class="facebook" onclick="handleShare('facebook')">Share on Facebook</button>
+    <button class="instagram" onclick="handleShare('instagram')">Share on Instagram</button>
+  </div>
+
+  <div class="from-name" id="fromName"></div>
+
+  <!-- Adsterra script -->
+  <script type="text/javascript">
+    atOptions = {
+      'key' : 'bba0c88a85335006067ed81cba5fa410',
+      'format' : 'iframe',
+      'height' : 250,
+      'width' : 300,
+      'params' : {}
+    };
+    document.write('<scr' + 'ipt type="text/javascript" src="https://www.highperformancecpmgate.com/bba0c88a85335006067ed81cba5fa410/invoke.js"></scr' + 'ipt>');
+  </script>
+
+  <!-- Countdown script -->
+  <script>
+    const countdown = () => {
+      const now = new Date();
+      const independenceDay = new Date("2025-08-15T00:00:00");
+      const diff = independenceDay - now;
+
+      if (diff <= 0) {
+        document.getElementById("countdown").innerText = "Happy Independence Day!";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const mins = Math.floor((diff / (1000 * 60)) % 60);
+      const secs = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("countdown").innerText = `${days}d ${hours}h ${mins}m ${secs}s`;
+    };
+
+    setInterval(countdown, 1000);
+    countdown();
+  </script>
+
+  <!-- Particle generation -->
+  <script>
+    for (let i = 0; i < 50; i++) {
+      const p = document.createElement("div");
+      p.className = "particle";
+      p.style.left = Math.random() * 100 + "vw";
+      p.style.backgroundColor = ["#FF9933", "#FFFFFF", "#138808"][Math.floor(Math.random() * 3)];
+      p.style.animationDuration = (Math.random() * 5 + 3) + "s";
+      document.body.appendChild(p);
+    }
+  </script>
+
+  <!-- Share redirect logic -->
+  <script>
+    let adRedirected = false;
+
+    function handleShare(platform) {
+      const name = document.getElementById("nameInput").value.trim();
+      if (!name) {
+        alert("Please enter your name before sharing.");
+        return;
+      }
+
+      if (!adRedirected) {
+        adRedirected = true;
+        window.location.href = "https://frayhalfyear.com/g78w1yu8?key=bba0c88a85335006067ed81cba5fa410";
+        return;
+      }
+
+      const msg = `🇮🇳 *Honouring Freedom, Inspiring the Future* 🇮🇳\n\n🎉 Shared by *${name}*!\nSend your wish 👉 https://xang1999.github.io/Independence-Day`;
+
+      let shareUrl = "#";
+      if (platform === "whatsapp") {
+        shareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(msg)}`;
+      } else if (platform === "facebook") {
+        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent("https://xang1999.github.io/Independence-Day")}`;
+      } else if (platform === "instagram") {
+        alert("Copy the link and share it on your Instagram manually: https://xang1999.github.io/Independence-Day");
+        return;
+      }
+
+      document.getElementById("fromName").innerText = `From: ${name}`;
+      window.location.href = shareUrl;
+    }
+  </script>
+
+</body>
+</html>
